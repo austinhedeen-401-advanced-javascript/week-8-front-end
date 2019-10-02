@@ -8,6 +8,9 @@ export const LoginContext = React.createContext();
 
 const API = process.env.REACT_APP_API;
 
+/**
+ * Provides access to login state.
+ */
 class LoginProvider extends React.Component {
   constructor(props) {
     super(props);

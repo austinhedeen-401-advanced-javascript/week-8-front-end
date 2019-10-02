@@ -4,6 +4,10 @@ import Auth from './auth/auth';
 import Login from './auth/login';
 import LoginProvider from './auth/context';
 
+/**
+ * A component to test conditional rendering. Renders only if a user is logged
+ * in with the "read" capability.
+ */
 function Read() {
   return (
     <Auth capability="read">
@@ -12,6 +16,10 @@ function Read() {
   );
 }
 
+/**
+ * A component to test conditional rendering. Renders only if a user is logged
+ * in with the "update" capability.
+ */
 function Update() {
   return (
     <Auth capability="update">
@@ -20,6 +28,9 @@ function Update() {
   );
 }
 
+/**
+ * The entry point of the application.
+ */
 function App() {
   return (
     <LoginProvider>

@@ -7,6 +7,10 @@ const If = (props) => {
   return props.condition ? props.children : null;
 };
 
+/**
+ * A component used to conditionally render contents depending on the role
+ * capability of a logged-in user.
+ */
 class Auth extends React.Component {
   static contextType = LoginContext;
 
