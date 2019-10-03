@@ -4,29 +4,7 @@ import Auth from './auth/auth';
 import Login from './auth/login';
 import LoginProvider from './auth/context';
 
-/**
- * A component to test conditional rendering. Renders only if a user is logged
- * in with the "read" capability.
- */
-function Read() {
-  return (
-    <Auth capability="read">
-      <span>Signed in! You have &quot;read&quot; capabilities.</span>
-    </Auth>
-  );
-}
-
-/**
- * A component to test conditional rendering. Renders only if a user is logged
- * in with the "update" capability.
- */
-function Update() {
-  return (
-    <Auth capability="update">
-      <span>You have &quot;update&quot; capabilities.</span>
-    </Auth>
-  );
-}
+import Todos from './todos';
 
 /**
  * The entry point of the application.
@@ -34,11 +12,13 @@ function Update() {
 function App() {
   return (
     <LoginProvider>
-      <h1>Hello world!</h1>
+      <h1>Week 8 Project</h1>
+      <p><em>You got this!</em></p>
       <Login />
       <hr />
-      <Read />
-      <Update />
+      <Auth capability="read">
+        <Todos />
+      </Auth>
     </LoginProvider>
   );
 }
