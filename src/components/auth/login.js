@@ -2,9 +2,7 @@ import React from 'react';
 
 import { LoginContext } from './context';
 
-const If = (props) => {
-  return props.condition ? props.children : null;
-};
+import If from '../If';
 
 /**
  * Renders a login form if a user is not logged in. Otherwise, renders a logout button.

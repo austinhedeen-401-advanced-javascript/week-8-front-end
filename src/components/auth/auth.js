@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 import { LoginContext } from './context';
 
-const If = (props) => {
-  return props.condition ? props.children : null;
-};
+import If from '../If';
 
 /**
  * A component used to conditionally render contents depending on the role
