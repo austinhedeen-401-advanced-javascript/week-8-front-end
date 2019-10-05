@@ -7,8 +7,9 @@
 ### Links and Resources
 * [Front-end Deployment](https://gallant-borg-966b80.netlify.com/)
 * [Travis](https://travis-ci.com/austinhedeen-401-advanced-javascript/week-8-front-end)
-* [PR - Day 1 (Setup/Config)](https://github.com/austinhedeen-401-advanced-javascript/week-8-back-end/pull/1)
-* [PR - Day 2 (React Auth)](https://github.com/austinhedeen-401-advanced-javascript/week-8-back-end/pull/2)
+* [PR - Day 1 (Setup/Config)](https://github.com/austinhedeen-401-advanced-javascript/week-8-front-end/pull/1)
+* [PR - Day 2 (React Auth)](https://github.com/austinhedeen-401-advanced-javascript/week-8-front-end/pull/2)
+* [PR - Day 3 (API Resources)](https://github.com/austinhedeen-401-advanced-javascript/week-8-front-end/pull/3)
 
 #### Documentation
 * [styleguide](https://stupefied-goldstine-b40abe.netlify.com/)
