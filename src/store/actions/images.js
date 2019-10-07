@@ -1,13 +1,13 @@
 const API = process.env.REACT_APP_API;
 
-const get = (payload) => {
+const getFromStore = (payload) => {
   return {
     type: 'FETCH_IMAGES',
     payload,
   };
 };
 
-const add = (payload) => {
+const addToStore = (payload) => {
   return {
     type: 'ADD_IMAGE',
     payload,
@@ -17,25 +17,25 @@ const add = (payload) => {
 const fetchImages = () => (dispatch) => {
   return fetch(`${API}/api/v1/image`)
     .then((results) => results.json())
-    .then((data) => dispatch(get(data)));
+    .then((data) => dispatch(getFromStore(data)));
 };
 
-const addImage = (image) => (dispatch) => {
+const uploadImage = (imageData) => (dispatch) => {
   const options = {
     method: 'POST',
-    body: JSON.stringify(image),
+    body: JSON.stringify(imageData),
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
   };
 
-  return fetch(`${API}/api/v1/image`, options)
+  return fetch(`${API}/cloudinary`, options)
     .then((results) => results.json())
-    .then((data) => dispatch(add(data)));
+    .then((data) => dispatch(addToStore(data)));
 };
 
 export default {
-  addImage,
+  uploadImage,
   fetchImages,
 };

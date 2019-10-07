@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 import imageActions from '../store/actions/images';
 
-const Images = ({ images, fetchImages }) => {
-  const [imageData, setImageData] = useState({});
+const Images = ({ images, fetchImages, uploadImage }) => {
+  const [imageData, setImageData] = useState('');
   const [imageTitle, setImageTitle] = useState('');
   const [imageDescription, setImageDescription] = useState('');
 
@@ -25,7 +25,10 @@ const Images = ({ images, fetchImages }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // TODO - Upload image data to API server
+    uploadImage({ data: imageData });
+    setImageData('');
+    setImageTitle('');
+    setImageDescription('');
   }
 
   return (
@@ -33,8 +36,7 @@ const Images = ({ images, fetchImages }) => {
       <ul>
         {images.map((image, imageIndex) => (
           <li key={imageIndex}>
-            <p>{image.title}</p>
-            <p>{image.description}</p>
+            <img src={image.url}/>
           </li>
         ))}
       </ul>
@@ -69,6 +71,7 @@ Images.propTypes = {
   addImage: PropTypes.func,
   fetchImages: PropTypes.func,
   images: PropTypes.array,
+  uploadImage: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -78,6 +81,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   addImage: (data) => dispatch(imageActions.addImage(data)),
   fetchImages: () => dispatch(imageActions.fetchImages()),
+  uploadImage: (imageData) => dispatch(imageActions.uploadImage(imageData)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Images);
