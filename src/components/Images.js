@@ -17,7 +17,7 @@ const Images = ({ images, fetchImages, uploadImage }) => {
     setImageTitle(file.name);
 
     const reader = new FileReader();
-    reader.onload = () => {
+    reader.onloadend = () => {
       setImageData(reader.result);
     };
     reader.readAsDataURL(file);
@@ -33,13 +33,9 @@ const Images = ({ images, fetchImages, uploadImage }) => {
 
   return (
     <>
-      <ul>
-        {images.map((image, imageIndex) => (
-          <li key={imageIndex}>
-            <img src={image.url}/>
-          </li>
-        ))}
-      </ul>
+      {images.map((image, imageIndex) => (
+        <img key={image._id} src={image.url} alt={`img-${imageIndex}`}/>
+      ))}
       <form onSubmit={handleSubmit}>
         <img src={imageData} alt="Upload preview" />
         <br/>
