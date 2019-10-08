@@ -5,7 +5,6 @@ import Login from './auth/login';
 import LoginProvider from './auth/context';
 
 import Images from './Images';
-import Todos from './todos';
 
 /**
  * The entry point of the application.
@@ -18,8 +17,6 @@ function App() {
       <Login />
       <hr />
       <Auth capability="read">
-        <Todos />
-        <hr />
         <Images />
       </Auth>
     </LoginProvider>
