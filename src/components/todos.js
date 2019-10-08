@@ -8,19 +8,21 @@ const Todos = (props) => {
   const [todoTitle, setTodoTitle] = useState('');
   const [todoContent, setTodoContent] = useState('');
 
+  const { todos, addTodo, fetchTodos } = props;
+
   function handleSubmit(e) {
     e.preventDefault();
-    props.addTodo({ title: todoTitle, content: todoContent });
+    addTodo({ title: todoTitle, content: todoContent });
   }
 
   useEffect(() => {
-    props.fetchTodos();
-  }, []);
+    fetchTodos();
+  }, [fetchTodos]);
 
   return (
     <>
       <ul>
-        {props.todos.map((todo, idx) => (
+        {todos.map((todo, idx) => (
           <li key={idx}>
             <p>{todo.title}</p>
             <p>{todo.content}</p>
